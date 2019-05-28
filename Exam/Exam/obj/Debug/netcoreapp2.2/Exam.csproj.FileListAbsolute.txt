@@ -54,3 +54,4 @@ C:\Users\darya\OneDrive\Рабочий стол\11-708-exam\Exam\Exam\obj\Debug\
 C:\Users\darya\OneDrive\Рабочий стол\11-708-exam\Exam\Exam\obj\Debug\netcoreapp2.2\Razor\Views\UserFile\Download.g.cshtml.cs
 C:\Users\darya\OneDrive\Рабочий стол\11-708-exam\Exam\Exam\obj\Debug\netcoreapp2.2\Razor\Views\UserFile\FilesList.g.cshtml.cs
 C:\Users\darya\OneDrive\Рабочий стол\11-708-exam\Exam\Exam\obj\Debug\netcoreapp2.2\Razor\Views\UserFile\Create.g.cshtml.cs
+C:\Users\darya\OneDrive\Рабочий стол\11-708-exam\Exam\Exam\obj\Debug\netcoreapp2.2\Razor\Views\Home\Descriptions.g.cshtml.cs

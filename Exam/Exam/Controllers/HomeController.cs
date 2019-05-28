@@ -70,7 +70,7 @@ namespace Exam.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("Index", "Files");
+            return View();
         }
 
         public IActionResult Privacy()
