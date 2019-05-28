@@ -20,10 +20,14 @@
     <div class="col-2-5">
         <div class="down">
             <h3>Список файлов</h3>
-            @foreach (var file in Model)
+            @try
             {
+                foreach (var file in Model)
+                {
                 <p>file.Name</p>
+                }
             }
+            catch { <p> Файлов нет</p>}
 
         </div>
     </div>

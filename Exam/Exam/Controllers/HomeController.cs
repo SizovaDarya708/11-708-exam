@@ -8,6 +8,8 @@ using Exam.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Exam.Controllers
 {
@@ -42,9 +44,9 @@ namespace Exam.Controllers
 
             return RedirectToAction("Index");
         }
-        public Task<IActionResult> AllFiles()
+        public async Task<IActionResult> AllFilesAsync()
         {
-            IQueryable<File> files = db.Files;
+            IQueryable<Models.File> files = db.Files;
             return View(await files.AsNoTracking().ToListAsync());
         }
 
