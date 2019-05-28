@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DeliveryFood.Models.Restaurant>;
+@{
+    ViewData["Title"] = "MainPage";
+}
+
+<h1>MainPage</h1>
+@foreach (var r in Model)
+{
+    <div>@r.Name;</div>
+    <p>@foreach(var d in r.Dishes)
+    {
+        @d.Name;
+    }</p>
+    
+}
+
+
