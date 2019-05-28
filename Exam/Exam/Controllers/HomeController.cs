@@ -18,6 +18,24 @@ namespace Exam.Controllers
         RUNContext db;
         IHostingEnvironment _appEnvironment;
 
+        public async Task<IActionResult> UploadFiles(IFormFileCollection files, string ShortDes, string LongDes)
+        {
+            foreach (var file in files)
+            {
+                if (file != null)
+                {
+                    var path = "/Files/" + file.FileName;
+                    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                    var newFile = new Models.File { Name = file.FileName, ShortDescription = ShortDes, FullDescription = LongDes, Link = path };
+                    db.Files.Add(newFile);
+                }
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         [HttpPost]        
         public async Task<IActionResult> AddFile(IFormFileCollection uploads)
         {

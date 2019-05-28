@@ -1,34 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Download";
 }
-@model IEnumerable<Exam.Models.File>
 
-<div class="row">
-    <div class="col-3-5">
-    </div>
-    <div class="col-2-5">
-        <div class="down">
-            <h3>Выберите файл для загрузки</h3>
-            <form asp-action="AddFile" class="down" asp-controller="Home" method="post" enctype="multipart/form-data">
-                <input type="file" name="uploads" accept=".txt" /><br>
-                <input type="submit" value="Загрузить" />
-            </form>
+<h2>Download</h2>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadFiles">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Upload one or more files using this form:</p>
+            <input type="file" name="files" multiple>
         </div>
     </div>
-</div>
-<div>
-    <div class="col-2-5">
-        <div class="down">
-            <h3>Список файлов</h3>
-            @try
-            {
-                foreach (var file in Model)
+    <div class="form-group">
+        <label for="short" class="control-label">ShortDescription</label>
+        <input id="short" class="form-control" maxlength="30" name="ShortDes"></input>
+    </div>
+    <div class="form-group">
+        <label for="long" class="control-label">LongDescription</label>
+<textarea id="long" class="form-control" name="LongDes"></textarea>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Upload">
+        </div>
+    </div>
+    <div>
+        <div class="col-2-5">
+            <div class="down">
+                <h3>Список файлов</h3>
+                @try
                 {
-                <p>file.Name</p>
+                    foreach (var file in Model)
+                    {
+                        <p>file.Name</p>
+                    }
                 }
-            }
-            catch { <p> Файлов нет</p>}
+                catch
+                { <p> Файлов нет</p>}
 
+            </div>
         </div>
     </div>
-</div>
+</form>
