@@ -67,7 +67,10 @@ namespace Exam.Controllers
             IQueryable<Models.File> files = db.Files;
             return View(await files.AsNoTracking().ToListAsync());
         }
-
+        public IActionResult Descriptions()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
